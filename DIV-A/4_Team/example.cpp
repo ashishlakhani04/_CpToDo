@@ -18,25 +18,23 @@ int main(){
 	int n;
 	cin>>n;
 
-	string s;
-	cin>>s;
-	map<char,int> m;
-	for(int i=0;i<s.length();i++){
-		m[s[i]]++;
+	int ans=0;
+	for(int i=0;i<n;i++){
+		int a,b,c,temp=0;
+		cin>>a>>b>>c;
+		if(a){
+			temp++;
+		}
+		if(b){
+			temp++;
+		}
+		if(c){
+			temp++;
+		}
+		if(temp >=2){
+			ans++;
+		}
 	}
-
-	int a=0,d=0;
-
-	a=m['A'];
-	d=m['D'];
-
-	if(a>d){
-		cout<<"Anton";
-	}else if(a == d){
-		cout<<"Friendship";
-	}else{
-		cout<<"Danik";
-	}
-
+	cout<<ans;
 
 }

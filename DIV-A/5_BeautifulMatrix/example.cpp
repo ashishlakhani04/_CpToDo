@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <math.h>
 #define fastio ios_base::sync_with_stdio(false)
 #define fastcin cin.tie(NULL)
 using namespace std;
@@ -15,28 +15,25 @@ int main(){
 
 
 
-	int n;
-	cin>>n;
+	int a[6][6];
+	int row,col;
+	for(int i=1;i<6;i++){
+		for(int j=1;j<6;j++){
 
-	string s;
-	cin>>s;
-	map<char,int> m;
-	for(int i=0;i<s.length();i++){
-		m[s[i]]++;
+			cin>>a[i][j];
+			if(a[i][j]){
+				row=i;
+				col=j;
+			}
+
+		}
 	}
 
-	int a=0,d=0;
+	int rowAns = abs(row-3);
+	int colAns = abs(col-3);
 
-	a=m['A'];
-	d=m['D'];
+	cout<<rowAns+colAns;
 
-	if(a>d){
-		cout<<"Anton";
-	}else if(a == d){
-		cout<<"Friendship";
-	}else{
-		cout<<"Danik";
-	}
 
 
 }

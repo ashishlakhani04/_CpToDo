@@ -15,28 +15,20 @@ int main(){
 
 
 
-	int n;
-	cin>>n;
+	int a,b;
+	cin>>a>>b;
 
-	string s;
-	cin>>s;
-	map<char,int> m;
-	for(int i=0;i<s.length();i++){
-		m[s[i]]++;
+	int answer=0;
+	if(a == b){
+		cout<<1;
+		return 0;
 	}
-
-	int a=0,d=0;
-
-	a=m['A'];
-	d=m['D'];
-
-	if(a>d){
-		cout<<"Anton";
-	}else if(a == d){
-		cout<<"Friendship";
-	}else{
-		cout<<"Danik";
+	while(a<=b){
+		a *= 3;
+		b *=2;
+		answer++;
 	}
+	cout<<answer;
 
 
 }
