@@ -15,26 +15,19 @@ int main(){
 
 
 
-	int n;
-	cin>>n;
+	string s;
+	cin>>s;
 
-	int ans=0;
-	for(int i=0;i<n;i++){
-		int a,b,c,temp=0;
-		cin>>a>>b>>c;
-		if(a){
-			temp++;
-		}
-		if(b){
-			temp++;
-		}
-		if(c){
-			temp++;
-		}
-		if(temp >=2){
-			ans++;
-		}
+	map<char,bool> m;
+
+	for(int i=0;i<s.length();i++){
+		m[s[i]]=true;
 	}
-	cout<<ans;
+
+	if(m.size() % 2 == 0){
+		cout<<"CHAT WITH HER!";
+	}else{
+		cout<<"IGNORE HIM!";
+	}
 
 }

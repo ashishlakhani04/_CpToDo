@@ -15,26 +15,26 @@ int main(){
 
 
 
-	int n;
-	cin>>n;
-
-	int ans=0;
-	for(int i=0;i<n;i++){
-		int a,b,c,temp=0;
-		cin>>a>>b>>c;
-		if(a){
-			temp++;
-		}
-		if(b){
-			temp++;
-		}
-		if(c){
-			temp++;
-		}
-		if(temp >=2){
-			ans++;
+	string s;
+	cin>>s;
+	int lc=0;
+	int uc=0;
+	for(int i=0;i<s.length();i++){
+		if(islower(s[i])){
+			lc++;
+		}else{
+			uc++;
 		}
 	}
-	cout<<ans;
+	if(lc>=uc){
+		for(int i=0;i<s.length();i++){
+			s[i]=tolower(s[i]);
+		}
+	}else{
+		for(int i=0;i<s.length();i++){
+			s[i]=toupper(s[i]);
+		}
+	}
+	cout<<s;
 
 }

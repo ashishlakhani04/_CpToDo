@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <algorithm>
 #define fastio ios_base::sync_with_stdio(false)
 #define fastcin cin.tie(NULL)
 using namespace std;
@@ -9,32 +9,24 @@ int main(){
 	fastcin;	
 	
     
-    // freopen("small_input.txt", "r", stdin);
+    freopen("small_input.txt", "r", stdin);
     
-    // freopen("small_output.txt", "w", stdout);
+    freopen("small_output.txt", "w", stdout);
 
 
 
 	int n;
 	cin>>n;
 
-	int ans=0;
+	int* a=new int[n];
 	for(int i=0;i<n;i++){
-		int a,b,c,temp=0;
-		cin>>a>>b>>c;
-		if(a){
-			temp++;
-		}
-		if(b){
-			temp++;
-		}
-		if(c){
-			temp++;
-		}
-		if(temp >=2){
-			ans++;
-		}
+		cin>>a[i];
 	}
-	cout<<ans;
+
+	sort(a,a+n);
+
+	for(int i=0;i<n;i++){
+		cout<<a[i]<<" ";
+	}
 
 }
