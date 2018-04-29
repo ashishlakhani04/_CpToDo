@@ -13,18 +13,22 @@ int main(){
     // freopen("small_output.txt", "w", stdout);
 
 
+    int n,k;
 
-	int t;
-	cin>>t;
+    cin>>n>>k;
 
-	while(t--){
-		string s;
-		cin>>s;
-		if(s.length()>10){
-			cout<<s[0]<<s.length()-2<<s[s.length()-1]<<"\n";
-		}else{
-			cout<<s<<"\n";
-		}
-	}
+    // cout<<(char)('a'+2);
+    int j=0;
+    for(int i=0;i<n;i++){
+    	if(j>=k){
+    		j = 0;
+    		cout<<(char)('a'+ j);
+    		j++;
+    		continue;
+    	}
+    	cout<<(char)('a'+ j);
+    	j++;
+    }
+	
 
 }
