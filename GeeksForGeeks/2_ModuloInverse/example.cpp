@@ -91,6 +91,7 @@ int power(int x, unsigned int y, unsigned int m)
 }
 
 int moduloInverseFermatLittle(int a,int m){
+	// Fermat's Little Theorem (https://www.youtube.com/watch?v=pMA-dD-KCWM)
 	int g = simpleEuclidTheorem(a,m);
 	if(g != 1){
 		return -1;

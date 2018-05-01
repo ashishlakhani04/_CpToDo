@@ -1,44 +1,34 @@
 #include <iostream>
+#include <math.h>
 #define fastio ios_base::sync_with_stdio(false)
 #define fastcin cin.tie(NULL)
+#define ll long long int
 using namespace std;
-int countDivisors(int x){
-	int count = 0;
-
-	for(int i=1;i<sqrt(x);i++){
-		if(x % i == 0){
-			count += 2;
-		}
-	}
-
-	if(sqrt(x) - (int)(sqrt(x))){
-		return count;
-	}
-	return count + 1;
-}
 int main(){
 
 	fastio;
 	fastcin;	
 	
     
-    freopen("small_input.txt", "r", stdin);
+    // freopen("small_input.txt", "r", stdin);
     
-    freopen("small_output.txt", "w", stdout);
+    // freopen("small_output.txt", "w", stdout);
 
 
 
-	int x;
-	cin>>x;
-	while(x != 0){
+	ll x;
+	while(cin>>x && x != 0){
+
+		// only perfect square numbers have odd number of divisiors
+		// other including prime number have even number of divisors 
 		
-		int num = countDivisors(x);
-		if(num % 2 == 0){
-			cout<<"no\n";
-		}else{
+		ll check = sqrt(x);
+		if(check * check == x){
 			cout<<"yes\n";
+		}else{
+			cout<<"no\n";
 		}
-		cin>>x;
+		
 	}
 
 	return(0);
