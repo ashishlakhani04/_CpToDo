@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #define fastio ios_base::sync_with_stdio(false)
 #define fastcin cin.tie(NULL)
 using namespace std;
@@ -55,8 +56,35 @@ int topDown(int* a,int s,int e,int year){
 }
 int bottomUp(int* a,int n){
 
-	int dp[n+1][n+1];
-	
+	int dp[100][100] = {};
+	int year = n;
+
+	for(int i=0;i<n;i++){
+		dp[i][i] = year*a[i];
+	}
+	year--;
+	for(int len=2;len<=n;len++){
+		int srt = 0;
+		int end = n-len;
+		while(srt<=end){
+			int endWindow = srt+len-1;
+			dp[srt][endWindow] = max(
+					a[srt]*year+dp[srt+1][endWindow],
+					a[endWindow]*year+dp[srt][endWindow-1]
+				);
+			srt++;
+		}
+		year--;
+	}
+
+	// for(int i=0;i<n;i++){
+	// 	for(int j=0;j<n;j++){
+	// 		cout<<setw(3)<<dp[i][j]<<" ";
+	// 	}
+	// 	cout<<endl;
+	// }
+	return dp[0][n-1];
+
 }
 
 int main(){
@@ -83,5 +111,6 @@ int main(){
 	cout<<greedy(a,n)<<endl;
 	cout<<recursion(a,0,n-1,1)<<endl;
 	cout<<topDown(a,0,n-1,1)<<endl;
+	cout<<bottomUp(a,n)<<endl;
 
 }
