@@ -1,5 +1,5 @@
 // Codeforces : http://codeforces.com/problemset/problem/580/A
-// ToDo
+// Accepted
 #include <iostream>
 #include <climits>
 #define fastio ios_base::sync_with_stdio(false)
