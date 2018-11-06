@@ -1,0 +1,6 @@
+1
+5
+Chelsea Tottenham 10
+Liverpool Manchester 100
+Manchester Paris 25
+Paris Chelsea 50
