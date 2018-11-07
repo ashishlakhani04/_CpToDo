@@ -1,10 +1,13 @@
-// ToDo
-// Link- 
+// Accepted
+// Link- https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/t1-1-6064aa64/description/
 #include <iostream>
 #include <vector>
 #include <climits>
 #include <algorithm>
 #include <climits>
+#include <queue>
+#include <string>
+#include <map>
 #define fastio ios_base::sync_with_stdio(false)
 #define fastcin cin.tie(NULL)
 using namespace std;
@@ -29,25 +32,34 @@ int main(){
 
     int n;
     cin>>n;
-
-    int* a=new int[n];
-    int* b = new int[n];
-    for(int i=0;i<n;i++){
-         cin>>a[i];
-         b[i] = a[i];
+    string source="";
+    for(int i=0;i<n;i++)
+    {   int x;
+        cin>>x;
+        source+=('0'+x);
     }
-    sort(b,b+n);
-    int cnt=0;
-
-    while(next_permutation(b,b+n)){
-         if(isSorted(a,b,n)){
+    string dest=source;             
+    sort(dest.begin(),dest.end());
+    queue<string> q;
+    q.push(source);
+    map<string,int> m;
+    m[source]=0;
+    while(!q.empty())
+    {   string next=q.front();
+        q.pop();
+        if(next==dest)
+        {   cout<<m[next]<<endl;
             break;
-         }
-         cnt++;
+        }
+        for(int i=2;i<n+1;i++)
+        {   string p=next;
+            reverse(p.begin(),p.begin()+i);
+            if(m.find(p)==m.end())
+            {   m[p]=m[next]+1;
+                q.push(p);
+            }
+        }
     }
-
-    cout<<cnt-1;
-	
 
     return 0;
 
