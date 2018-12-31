@@ -21,7 +21,6 @@ int recursion(int n){
 		ans2 = recursion(n/2)+1;
 	}
 	ans3 = recursion(n-1)+1;
-
 	return min(ans1,min(ans2,ans3));
 
 }

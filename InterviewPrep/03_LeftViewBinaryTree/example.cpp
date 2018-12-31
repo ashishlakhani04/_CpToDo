@@ -1,4 +1,4 @@
-// ToDo
+// Solved
 // Link :- https://www.geeksforgeeks.org/print-left-view-binary-tree/
 #include <iostream>
 #include <queue>
@@ -10,9 +10,12 @@ public:
 	Node* left;
 	int ele;
 	Node* right;
+	Node(int ele){
+		this->ele = ele;
+	}
 };
 void insert(Node* head){
-	queue<int> q;
+	queue<Node*> q;
 	int temp;
 	cin>>temp;
 
@@ -26,15 +29,38 @@ void insert(Node* head){
 		int l,r;
 		cin>>l>>r;
 
-		if(left != -1){
-			n->left = l;
+		if(l != -1){
+			n->left = new Node(l);
+			q.push(n->left);
 		}else{
 			n->left = NULL;
 		}
-		if(right != -1){
-			he
+		if(r != -1){
+			n->right = new Node(r);
+			q.push(n->right);
+		}else{
+			n->right = NULL;
 		}
 	}
+}
+void print(Node* head){
+	if(head != NULL){
+		cout<<head->ele<<" ";
+		print(head->left);
+		print(head->right);
+	}
+	
+}
+void printLeftView(Node* head,int level,int* max_level){
+	if(head == NULL){
+		return;
+	}
+	if(*max_level < level){
+		cout<<head->ele;
+		*max_level = level;
+	}
+	printLeftView(head->left,level+1, max_level);
+	printLeftView(head->right,level+1,max_level);
 }
 int main(){
 
@@ -46,7 +72,9 @@ int main(){
     
     freopen("small_output.txt", "w", stdout);
 
-
-    
+    Node* head = new Node(-1);
+    insert(head);
+    int max_level = 0;
+    printLeftView(head,1,&max_level);
 
 }
